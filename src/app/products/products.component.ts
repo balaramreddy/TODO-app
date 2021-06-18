@@ -9,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class ProductsComponent implements OnInit {
 
   checkoutForm : FormGroup;
+  valuechangedtracker = " "
 
   constructor( private fb:FormBuilder) { 
     // this.checkoutForm = fb.group({
@@ -37,12 +38,21 @@ export class ProductsComponent implements OnInit {
     //   email:'balaramreddy@gmail.com',
     //   password:'12345',
       
-    // })
+    //  })
+    // this.checkoutForm.get('email').statusChanges.subscribe(data =>{
+    //   this.valuechangedtracker = data; 
+    //   console.log(data);
+    //   })
+
+    this.checkoutForm.statusChanges.subscribe(data =>{
+      this.valuechangedtracker = data; 
+      console.log(data);
+      })
   }
 
   postData(){
     console.log(this.checkoutForm)
-    console.log(this.checkoutForm.value)
+    // console.log(this.checkoutForm.value)
     this.checkoutForm.reset();
   }
 

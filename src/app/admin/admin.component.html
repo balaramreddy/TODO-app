@@ -1,10 +1,37 @@
 
-<div class="container">
-    <ul class="list-unstyled">
-        <li *ngFor="let list of Lists">
-            {{list.contactId}}
-            {{list.name}}
-        </li>
-    </ul>
+<div class="container-fluid">
+    <h4 class="mb-2">SpaceX Launch Programs</h4>
+    <div class="row w-100 p-2">
+        <div class="col-md-2 filters">
+            <h6>Filters</h6>
+            <h6 class="text-info text-center">Launch Year</h6>
+            <hr>
+            <div class="year" *ngFor="let year of years" (click)="onSelect(year)">
+                   <button class="btn btn-sm btn-success year-btn">{{year}}</button>
+            </div>
+            <br>
+            <h6 class="text-info text-center">Successful Launch</h6>
+            <hr>
+            <div class="year" *ngFor="let success of launch">
+                   <button class="btn btn-sm btn-success year-btn">{{success}}</button>
+            </div>
+        </div>
+        <div class="col-md-10">
+
+            <div class="row">
+                <div class="col-md-3 mb-4" *ngFor="let list of Lists" >
+                  <div class="card">
+                    <img src="{{list.links.mission_patch}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title text-danger">Name :{{list.mission_name}}</h6>
+                        <p><strong>MissonIds:</strong>{{list.mission_id}}</p>
+                        <p><strong>Launch Year: </strong> {{list.launch_year}}</p>
+                        <p><strong>Successful Launch:</strong> {{list.launch_success}} </p>
+                    </div> 
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
 </div>
 

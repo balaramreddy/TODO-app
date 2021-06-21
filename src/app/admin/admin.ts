@@ -1,0 +1,43 @@
+export interface Admin {
+    details:string,
+    flight_number:string,
+    mission_name:string,
+    mission_id:string,
+    launch_date_unix:string,
+    launch_date_local:string,
+    launch_date_utc:string,
+    launch_failure_details:{
+        altitude:string,
+        reason:string,
+        time:string
+    },
+    launch_site:{
+        site_id:string,
+        site_name:string,
+        site_name_long:string,
+        video_link:string,
+        wikipedia:string,
+        youtube_id:string
+    },
+    links:{
+        article_link:string,
+        mission_patch:string,
+        mission_patch_small:string,
+    },
+    rocket:{
+        rocket_id:string,
+        rocket_name:string,
+        first_stage:{
+            cores:{
+                land_success:string
+            },
+        },
+    },
+    launch_success:string,
+    launch_year:string,
+    static_fire_date_unix:string,
+    static_fire_date_utc:string,
+    tentative_max_precision:string
+   
+}
+

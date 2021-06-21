@@ -1,19 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Admin } from './admin';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  constructor() { }
+  constructor( private httpclient:HttpClient) { }
   
-  getContacts(){
-    const contactList =[
-    {contactId:1, name:'google'},
-    {contactId:2, name:'youtube'},
-    {contactId:3, name:'instagram'},
-    {contactId:4, name:'facebook'},
-    ];
-    return contactList;
+  getContacts():Observable<Admin[]>{
+    const url = "https://api.spaceXdata.com/v3/launches?limit=100";
+    return this.httpclient.get<Admin[]>(url)
   }
+ 
 }
